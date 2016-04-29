@@ -1,6 +1,9 @@
 <h1>Edit Recipe</h1>
 <hr>
-<form action="/recipes/2" method="post">
+
+<%= render "form" %>
+
+<!-- <form action="/recipes/2" method="post">
   <input type="hidden" name="_method" value="patch">
   <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
   <div class="form-group">
@@ -12,4 +15,4 @@
     <textarea name="recipe[instructions]" class="form-control" id="recipe_instructions" placeholder="Type your recipe instructions here"><%= @recipe.instructions %></textarea>
   </div>
   <input type="submit" value="Save Recipe" class="btn btn-block btn-default">
-</form>
+</form> -->
