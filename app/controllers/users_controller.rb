@@ -18,16 +18,16 @@ class UsersController < ApplicationController
   def create
     # don't let current_user create new account
     if current_user
-      redirect_to "/users/#{current_user.id}"
+      redirect_to user_path(current_user)
     else
       @user = User.new(user_params)
       if @user.save
         session[:user_id] = @user.id
         flash[:notice] = "Successfully signed up."
-        redirect_to "/users/#{@user.id}"
+        redirect_to user_path(@user)
       else
         flash[:error] = @user.errors.full_messages.join(", ")
-        redirect_to "/signup"
+        redirect_to signup_path
       end
     end
   end
