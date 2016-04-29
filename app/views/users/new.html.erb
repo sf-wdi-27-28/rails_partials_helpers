@@ -1,20 +1,16 @@
 <h1>Sign Up</h1>
 <hr>
-<form action="/users" method="post">
-  <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
-  <div class="form-group">
-    <label for="user_email">Email</label>
-    <input type="text" name="user[email]" class="form-control" id="user_email" placeholder="email@example.com" autofocus>
-  </div>
-  <div class="form-group">
-    <label for="user_password">Password</label>
-    <input type="password" name="user[password]" class="form-control" id="user_password" placeholder="Must be at least 6 characters">
-  </div>
-  <div class="form-group">
-    <label for="user_password_confirmation">Password Confirmation</label>
-    <input type="password" name="user[password_confirmation]" class="form-control" id="user_password_confirmation" placeholder="Confirm password">
-  </div>
-  <input type="submit" value="Sign Up" class="btn btn-block btn-default">
-</form>
+<%= form_for @user do |f| %>
+<%= f.label :email %>
+<%= f.email_field :email, placeholder: "email@example.com", class: "form-control", autofocus: true %>
+
+<%= f.label :password %>
+<%= f.password_field :password, placeholder: "Must be at least 6 characters", class: "form-control" %>
+
+<%= f.label :password_comfirmation, "Password Confirmation" %>
+<%= f.password_field :password_comfirmation, placeholder: "Confirm password", class: "form-control" %>
 <br>
-<p>Already have an account? <a href="/login">Click here</a> to log in.</p>
+<%= f.submit "Sign Up", class: "btn btn-block btn-info" %>
+<% end %>
+<br>
+<p>Already have an account? Click <%= link_to "here", login_path%> to login.</p>
