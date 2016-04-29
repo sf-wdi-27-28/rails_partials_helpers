@@ -2,19 +2,3 @@
 <hr>
 
 <%= render partial: 'form' %>
-
-<%= form_for(@recipe, html_options = {:class => 'form-group'}) do |f| %>
-
-  <div class="form-group">
-    <%= f.label :name %><br>
-    <%= f.text_field :name, html_options = {:class => 'form-control'} %>
-  </div>
-  <div class="form-group">
-    <%= f.label :instructions %><br>
-    <%= f.text_area :instructions, html_options = {:class => 'form-control'} %>
-  </div>
-  <div class="actions">
-    <%= f.submit "Save Recipe", html_options = {:class => 'btn btn-default'}%>
-  </div>
-
-<% end %>

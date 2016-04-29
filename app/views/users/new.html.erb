@@ -1,25 +1,7 @@
 <h1>Sign Up</h1>
 <hr>
 
-<%= form_for(@user, html_options = {:class => 'form-group'}) do |f| %>
-
-  <div class="form-group">
-    <%= f.label :email %><br>
-    <%= f.text_field :email, html_options = {:placeholder => "Email",:class => 'form-control'} %>
-  </div>
-  <div class="form-group">
-    <%= f.label :password %><br>
-    <%= f.password_field :password, html_options = {:placeholder => "Password",:class => 'form-control'} %>
-  </div>
-  <div class="form-group">
-    <%= f.label :password_confirmation, 'Password Confirmation' %><br>
-    <%= f.password_field :password_confirmation, html_options = { :placeholder => "Password Confirmation", :class => 'form-control'} %>
-  </div>
-  <div class="actions">
-    <%= f.submit "Sign Up", html_options = {:class => 'btn btn-default btn-block'}%>
-  </div>
-
-<% end %>
+<%= render partial: 'form' %>
 
 
 

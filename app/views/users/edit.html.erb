@@ -1,14 +1,4 @@
 <h1>Edit Profile</h1>
 <hr>
 
-<%= form_for(@user, html_options = {:class => 'form-group'}) do |f| %>
-
-  <div class="form-group">
-    <%= f.label :email %><br>
-    <%= f.text_field :email, html_options = {:placeholder => "Email",:class => 'form-control'} %>
-  </div>
-  <div class="actions">
-    <%= f.submit "Save Profile", html_options = {:class => 'btn btn-default btn-block'}%>
-  </div>
-
-<% end %>
+<%= render partial: 'form' %>

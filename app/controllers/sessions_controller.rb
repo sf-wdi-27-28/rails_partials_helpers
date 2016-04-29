@@ -9,6 +9,7 @@ class SessionsController < ApplicationController
   end
 
   def create
+    p user_params[:email].to_s
     @user = User.find_by_email(user_params[:email])
     # @user = User.find_by_email(params.require('/login').permit(:email,:password))
     # If the user exists AND the password entered is correct.
