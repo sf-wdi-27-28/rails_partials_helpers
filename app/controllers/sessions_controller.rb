@@ -1,6 +1,7 @@
 class SessionsController < ApplicationController
 
   def new
+    @user = User.new
     # don't let current_user see the log in view
     if current_user
       redirect_to "/users/#{current_user.id}"
@@ -9,6 +10,7 @@ class SessionsController < ApplicationController
 
   def create
     @user = User.find_by_email(user_params[:email])
+    # @user = User.find_by_email(params.require('/login').permit(:email,:password))
     # If the user exists AND the password entered is correct.
     if @user && @user.authenticate(user_params[:password])
       # Save the user id inside the browser cookie. This is how we keep the user
