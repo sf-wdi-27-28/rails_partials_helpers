@@ -1,6 +1,6 @@
 <h1>Edit Recipe</h1>
 <hr>
-<form action="/recipes/2" method="post">
+<!--<form action="/recipes/2" method="post">
   <input type="hidden" name="_method" value="patch">
   <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
   <div class="form-group">
@@ -13,3 +13,17 @@
   </div>
   <input type="submit" value="Save Recipe" class="btn btn-block btn-default">
 </form>
+-->
+<%= form_for @recipe do |f| %>
+<input type="hidden" name="_method" value="patch">
+<input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+    <div class="form-group">
+    <%= f.label :name %> <br />
+    <%= f.text_field :name %>
+    </div>
+    <div class="form-group">
+    <%= f.label :instructions %>
+    <%= f.text_area :instructions %>
+     </div>
+    <%= f.submit "Submit", :class=> 'btn btn-block btn-default'%>
+  <% end %>
