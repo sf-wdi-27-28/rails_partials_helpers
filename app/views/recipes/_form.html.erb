@@ -1,0 +1,10 @@
+
+<%= form_for @recipe do |f| %>
+<%= f.label :name %>
+<%= f.text_field :name, placeholder:"Recipe name", class:"form-control" %>
+
+<%= f.label :instructions %>
+<%= f.text_area :instructions, placeholder:"Type your recipe instructions here", class:"form-control"%>
+<br>
+<%= f.submit "Submit", class:"btn btn-block btn-info" %>
+<% end %>
