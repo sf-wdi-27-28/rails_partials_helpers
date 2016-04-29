@@ -12,5 +12,22 @@
   </div>
   <input type="submit" value="Log In" class="btn btn-block btn-default">
 </form>
+
+<%= form_for session_index_path, html_options = {:class => 'form-group'} do |f| %>
+
+  <div class="form-group">
+    <%= f.label :email %><br>
+    <%= f.text_field :email, html_options = {:placeholder => "Email",:class => 'form-control'} %>
+  </div>
+  <div class="form-group">
+    <%= f.label :password %><br>
+    <%= f.password_field :password, html_options = {:placeholder => "Password",:class => 'form-control'} %>
+  </div>
+  <div class="actions">
+    <%= f.submit "Log In", html_options = {:class => 'btn btn-default btn-block'}%>
+  </div>
+
+<% end %>
+
 <br>
-<p>Don't have an account? <a href="/signup">Click here</a> to sign up.</p>
+<p>Don't have an account?  <%= link_to 'Click here', 'signup' %> to sign up.</p>

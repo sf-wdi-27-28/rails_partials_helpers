@@ -1,20 +1,27 @@
 <h1>Sign Up</h1>
 <hr>
-<form action="/users" method="post">
-  <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+
+<%= form_for(@user, html_options = {:class => 'form-group'}) do |f| %>
+
   <div class="form-group">
-    <label for="user_email">Email</label>
-    <input type="text" name="user[email]" class="form-control" id="user_email" placeholder="email@example.com" autofocus>
+    <%= f.label :email %><br>
+    <%= f.text_field :email, html_options = {:placeholder => "Email",:class => 'form-control'} %>
   </div>
   <div class="form-group">
-    <label for="user_password">Password</label>
-    <input type="password" name="user[password]" class="form-control" id="user_password" placeholder="Must be at least 6 characters">
+    <%= f.label :password %><br>
+    <%= f.password_field :password, html_options = {:placeholder => "Password",:class => 'form-control'} %>
   </div>
   <div class="form-group">
-    <label for="user_password_confirmation">Password Confirmation</label>
-    <input type="password" name="user[password_confirmation]" class="form-control" id="user_password_confirmation" placeholder="Confirm password">
+    <%= f.label :password_confirmation, 'Password Confirmation' %><br>
+    <%= f.password_field :password_confirmation, html_options = { :placeholder => "Password Confirmation", :class => 'form-control'} %>
   </div>
-  <input type="submit" value="Sign Up" class="btn btn-block btn-default">
-</form>
+  <div class="actions">
+    <%= f.submit "Sign Up", html_options = {:class => 'btn btn-default btn-block'}%>
+  </div>
+
+<% end %>
+
+
+
 <br>
-<p>Already have an account? <a href="/login">Click here</a> to log in.</p>
+<p>Already have an account? <%= link_to 'Click here', 'login' %> to log in.</p>
